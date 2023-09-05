@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">android-permission</string>
+
+    <string name="my_demo_text">Hello Heeru</string>
+
+    <string name="reset_password">Reset Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <string name="enter_current_password">Enter current password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="enter_valid_confirm_password">Enter valid confirm password</string>
+    <string name="password_mismatch">Password and confirm password mismatch</string>
+    <string name="current_passsword_change_password_not_same">Current password and change password cannot be same</string>
+    <string name="if_you_change_password_your_current_new_password_here_otherwise_leave">If you\'d like to change your password, \nenter your current password and new password here. Otherwise, leave them all blank.</string>
+    <string name="test">Test</string>
+
+</resources>
