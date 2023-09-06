@@ -4,7 +4,6 @@ import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
@@ -14,10 +13,6 @@ const val REQUEST_CODE_LOCATION_PREMISSION = 1027
 const val REQUEST_CODE_NOTIFICATION = 1030
 
 object GrantPermission {
-
-
-    private val permissionReadMediaImage =
-        if (isAndroid13OrGreater()) Manifest.permission.READ_MEDIA_IMAGES else Manifest.permission.READ_EXTERNAL_STORAGE
 
     val mPermissionArrayCameraGallery = if (isLowerThanAndroid10()) arrayOf(
         Manifest.permission.CAMERA,
@@ -151,17 +146,5 @@ object GrantPermission {
         }
         return true
     }
-}
-
-private fun isLowerThanAndroid10(): Boolean {
-    return Build.VERSION.SDK_INT < Build.VERSION_CODES.R
-}
-
-private fun isAndroid13OrGreater(): Boolean {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-}
-
-private fun checkTestPermission() {
-
 }
 

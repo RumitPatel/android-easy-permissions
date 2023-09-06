@@ -3,7 +3,6 @@ package com.rums.android_compose_example.utils
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
@@ -18,9 +17,6 @@ class EasyPermission(
     private val mOnPermissionListener: OnPermissionListener? = null,
     private val requestMultiplePermissions: ActivityResultLauncher<Array<String>>? = null
 ) {
-
-    private val permissionReadMediaImage =
-        if (isAndroid13OrGreater()) Manifest.permission.READ_MEDIA_IMAGES else Manifest.permission.READ_EXTERNAL_STORAGE
 
     private constructor(initializer: Initializer) : this(
         initializer.componentActivity,
@@ -112,10 +108,3 @@ class EasyPermission(
 }
 
 
-private fun isLowerThanAndroid10(): Boolean {
-    return Build.VERSION.SDK_INT < Build.VERSION_CODES.R
-}
-
-private fun isAndroid13OrGreater(): Boolean {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-}
