@@ -1,4 +1,4 @@
-package com.rums.android_compose_example.z_test_permission.ui
+package com.rums.android_compose_example.ui.compose_screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +11,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,17 +21,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rums.android_compose_example.R
-import com.rums.android_compose_example.ui.common_views.MyText
 
 
 @Composable
-fun TestPermissionApp(
-    onTestButtonPressed: () -> Unit = {}
+fun PermissionDemoScreen(
+    onTestButtonPressed: () -> Unit = {},
+    onTestSingleButtonPressed: () -> Unit = {}
 ) {
     Scaffold() { padding ->
         PermissionTestHomeScreen(
             modifier = Modifier.padding(padding),
-            onTestButtonPressed = onTestButtonPressed
+            onTestButtonPressed = onTestButtonPressed,
+            onTestSingleButtonPressed = onTestSingleButtonPressed
         )
     }
 }
@@ -39,7 +41,8 @@ fun TestPermissionApp(
 @Composable
 fun PermissionTestHomeScreen(
     modifier: Modifier = Modifier,
-    onTestButtonPressed: () -> Unit = {}
+    onTestButtonPressed: () -> Unit = {},
+    onTestSingleButtonPressed: () -> Unit = {}
 ) {
     Column(modifier.verticalScroll(rememberScrollState())) {
         Spacer(modifier = Modifier.height(16.dp))
@@ -54,8 +57,27 @@ fun PermissionTestHomeScreen(
             onClick = {
                 onTestButtonPressed()
             }) {
-            MyText(
-                text = stringResource(R.string.test).uppercase(),
+            Text(
+                text = stringResource(R.string.camera_and_storage_permission).uppercase(),
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .height(52.dp),
+            shape = RoundedCornerShape(10.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = colorResource(R.color.colorPrimary)
+            ),
+            onClick = {
+                onTestSingleButtonPressed()
+            }) {
+            Text(
+                text = stringResource(R.string.single_permission).uppercase(),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White
