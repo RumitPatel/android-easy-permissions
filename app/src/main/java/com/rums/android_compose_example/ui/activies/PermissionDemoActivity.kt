@@ -2,8 +2,8 @@ package com.rums.android_compose_example.ui.activies
 
 import android.content.Context
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -15,7 +15,7 @@ import com.rums.android_compose_example.ui.theme.AndroidComposeExampleTheme
 import com.rums.android_compose_example.utils.EasyPermission
 import com.rums.android_compose_example.utils.toast
 
-class PermissionDemoActivity : ComponentActivity() {
+class PermissionDemoActivity : AppCompatActivity() {
     private lateinit var mContext: Context
     private var easyPermission: EasyPermission? = null
 

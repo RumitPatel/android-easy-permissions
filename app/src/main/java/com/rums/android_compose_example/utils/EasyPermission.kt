@@ -4,14 +4,14 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.util.Log
-import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.rums.android_compose_example.listeners.OnPermissionListener
 
 class EasyPermission(
-    private val componentActivity: ComponentActivity? = null,
+    private val activity: AppCompatActivity? = null,
     private val model: String? = null,
     private val year: Int = 0,
     private val mOnPermissionListener: OnPermissionListener? = null,
@@ -19,15 +19,15 @@ class EasyPermission(
 ) {
 
     private constructor(initializer: Initializer) : this(
-        initializer.componentActivity,
+        initializer.activity,
         initializer.model,
         initializer.year,
         initializer.onPermissionListener,
         initializer.requestMultiplePermissions
     )
 
-    class Initializer(componentActivity: ComponentActivity?) {
-        var componentActivity: ComponentActivity? = componentActivity
+    class Initializer(activity: AppCompatActivity?) {
+        var activity: AppCompatActivity? = activity
             private set
 
         var requestMultiplePermissions: ActivityResultLauncher<Array<String>>? = null
@@ -50,7 +50,7 @@ class EasyPermission(
         fun setOnPermissionListener(onPermissionListener: OnPermissionListener?) = apply {
             this.onPermissionListener = onPermissionListener
 
-            this.requestMultiplePermissions = componentActivity?.registerForActivityResult(
+            this.requestMultiplePermissions = activity?.registerForActivityResult(
                 ActivityResultContracts.RequestMultiplePermissions()
             ) { permissions ->
                 var isAnyDeclined = false
@@ -72,7 +72,7 @@ class EasyPermission(
     }
 
     fun launch() {
-        hasCameraAndStoragePermissions(componentActivity as Context)
+        hasCameraAndStoragePermissions(activity as Context)
     }
 
     private fun hasCameraAndStoragePermissions(context: Context): Boolean {

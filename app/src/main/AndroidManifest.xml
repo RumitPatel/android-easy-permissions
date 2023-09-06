@@ -25,12 +25,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Androidcomposeexample"
+        android:theme="@style/Theme.MyAppcompatTheme"
         tools:targetApi="31">
         <activity
             android:name=".ui.activies.PermissionDemoActivity"
             android:exported="true"
-            android:theme="@style/Theme.Androidcomposeexample">
+            android:theme="@style/Theme.MyAppcompatTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
