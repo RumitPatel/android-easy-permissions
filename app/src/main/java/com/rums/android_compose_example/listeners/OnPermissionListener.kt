@@ -1,4 +1,4 @@
-package com.rums.android_compose_example.z_test_permission
+package com.rums.android_compose_example.listeners
 
 interface OnPermissionListener {
     fun onGranted()

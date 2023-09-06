@@ -1,31 +1,33 @@
-package com.rums.android_compose_example.z_test_permission
+package com.rums.android_compose_example.ui.activies
 
+import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
+import com.rums.android_compose_example.R
+import com.rums.android_compose_example.listeners.OnPermissionListener
+import com.rums.android_compose_example.ui.compose_screen.PermissionDemoScreen
 import com.rums.android_compose_example.ui.theme.AndroidComposeExampleTheme
-import com.rums.android_compose_example.z_test_permission.ui.TestPermissionApp
+import com.rums.android_compose_example.utils.EasyPermission
+import com.rums.android_compose_example.utils.toast
 
 class PermissionDemoActivity : ComponentActivity() {
+    private lateinit var mContext: Context
     private var easyPermission: EasyPermission? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mContext = this
         setContent {
             AndroidComposeExampleTheme {
                 Surface(
                     modifier = Modifier.fillMaxWidth(), color = MaterialTheme.colors.background
                 ) {
-                    TestPermissionApp(
-                        onTestButtonPressed = {
-                            testPermission()
-                        }
-                    )
+                    PermissionDemoScreen(onTestButtonPressed = { testPermission() })
                 }
             }
         }
@@ -39,11 +41,11 @@ class PermissionDemoActivity : ComponentActivity() {
             .setModel("2015")
             .setOnPermissionListener(object : OnPermissionListener {
                 override fun onGranted() {
-                    Toast.makeText(this@PermissionDemoActivity, "Granted", Toast.LENGTH_SHORT).show()
+                    toast(getString(R.string.permission_granted))
                 }
 
                 override fun onDeclined() {
-                    Toast.makeText(this@PermissionDemoActivity, "Declined", Toast.LENGTH_SHORT).show()
+                    toast(getString(R.string.permission_declined))
                 }
             })
             .build()

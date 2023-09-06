@@ -1,4 +1,4 @@
-package com.rums.android_compose_example.z_test_permission.ui
+package com.rums.android_compose_example.ui.compose_screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +11,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,11 +21,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rums.android_compose_example.R
-import com.rums.android_compose_example.ui.common_views.MyText
 
 
 @Composable
-fun TestPermissionApp(
+fun PermissionDemoScreen(
     onTestButtonPressed: () -> Unit = {}
 ) {
     Scaffold() { padding ->
@@ -54,8 +54,8 @@ fun PermissionTestHomeScreen(
             onClick = {
                 onTestButtonPressed()
             }) {
-            MyText(
-                text = stringResource(R.string.test).uppercase(),
+            Text(
+                text = stringResource(R.string.camera_and_storage_permission).uppercase(),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White

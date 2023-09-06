@@ -1,4 +1,4 @@
-package com.rums.android_compose_example.z_test_permission
+package com.rums.android_compose_example.utils
 
 import android.Manifest
 import android.content.Context
@@ -9,6 +9,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.rums.android_compose_example.listeners.OnPermissionListener
 
 class EasyPermission(
     private val componentActivity: ComponentActivity? = null,
