@@ -25,12 +25,14 @@ import com.rums.android_compose_example.R
 
 @Composable
 fun PermissionDemoScreen(
-    onTestButtonPressed: () -> Unit = {}
+    onTestButtonPressed: () -> Unit = {},
+    onTestSingleButtonPressed: () -> Unit = {}
 ) {
     Scaffold() { padding ->
         PermissionTestHomeScreen(
             modifier = Modifier.padding(padding),
-            onTestButtonPressed = onTestButtonPressed
+            onTestButtonPressed = onTestButtonPressed,
+            onTestSingleButtonPressed = onTestSingleButtonPressed
         )
     }
 }
@@ -39,7 +41,8 @@ fun PermissionDemoScreen(
 @Composable
 fun PermissionTestHomeScreen(
     modifier: Modifier = Modifier,
-    onTestButtonPressed: () -> Unit = {}
+    onTestButtonPressed: () -> Unit = {},
+    onTestSingleButtonPressed: () -> Unit = {}
 ) {
     Column(modifier.verticalScroll(rememberScrollState())) {
         Spacer(modifier = Modifier.height(16.dp))
@@ -56,6 +59,25 @@ fun PermissionTestHomeScreen(
             }) {
             Text(
                 text = stringResource(R.string.camera_and_storage_permission).uppercase(),
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .height(52.dp),
+            shape = RoundedCornerShape(10.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = colorResource(R.color.colorPrimary)
+            ),
+            onClick = {
+                onTestSingleButtonPressed()
+            }) {
+            Text(
+                text = stringResource(R.string.single_permission).uppercase(),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White
