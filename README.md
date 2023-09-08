@@ -1,2 +1,2 @@
 # android-easy-permission
-Note: The project is under development.
+🚧  Note: The project is under development. 
