@@ -1,4 +1,4 @@
-package com.rums.android_compose_example.listeners
+package com.rumit.android_easy_permission.listeners
 
 interface OnPermissionListener {
     fun onGranted()

@@ -1,4 +1,4 @@
-package com.rums.android_compose_example
+package com.rumit.android_easy_permission
 
 import org.junit.Test
 

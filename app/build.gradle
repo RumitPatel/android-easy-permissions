@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.rums.android_compose_example'
+    namespace 'com.rumit.android_easy_permission'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.rums.android_compose_example"
+        applicationId "com.rums.android_easy_permission"
         minSdk 26
         targetSdk 34
         versionCode 1

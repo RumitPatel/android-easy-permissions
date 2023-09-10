@@ -1,4 +1,4 @@
-package com.rums.android_compose_example.ui.theme
+package com.rumit.android_easy_permission.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
