@@ -8,7 +8,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.rums.android_easy_permission"
+        applicationId "com.rumit.android_easy_permission"
         minSdk 26
         targetSdk 34
         versionCode 1
