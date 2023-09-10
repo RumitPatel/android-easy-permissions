@@ -1,4 +1,4 @@
-package com.rums.android_compose_example.ui.compose_screen
+package com.rumit.android_easy_permission.ui.compose_screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.rums.android_compose_example.R
+import com.rumit.android_easy_permission.R
 
 
 @Composable
