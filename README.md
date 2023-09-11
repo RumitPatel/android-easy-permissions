@@ -15,7 +15,7 @@ implementation("io.github.rumitpatel:easy-permissions:1.0.3")
 private var easyPermission: EasyPermission? = null
 ```
 
-**Step:3** Initiate permission obj in obCreate() method.
+**Step:3** Initiate permission obj in obCreate() method. Also handle callback here.
 
 ```
 private fun initializePermissionObj() {
@@ -44,4 +44,9 @@ private fun initializePermissionObj() {
 
 **Step:4** Simply launch the launcher.
 
-``` easyPermission?.launch() ```
+```
+buttonTest.setOnClickListener {
+     easyPermission?.launch()
+}
+
+```
