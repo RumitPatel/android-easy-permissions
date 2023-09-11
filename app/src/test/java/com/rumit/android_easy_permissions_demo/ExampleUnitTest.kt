@@ -1,4 +1,4 @@
-package com.rumit.android_easy_permission
+package com.rumit.android_easy_permissions_demo
 
 import org.junit.Test
 

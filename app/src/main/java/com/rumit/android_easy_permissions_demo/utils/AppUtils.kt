@@ -1,4 +1,4 @@
-package com.rumit.android_easy_permission.utils
+package com.rumit.android_easy_permissions_demo.utils
 
 import android.content.Context
 import android.content.DialogInterface
@@ -8,7 +8,7 @@ import android.os.Build
 import android.provider.Settings
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.rumit.android_easy_permission.R
+import com.rumit.android_easy_permissions_demo.R
 
 
 fun isLowerThanAndroid10(): Boolean {

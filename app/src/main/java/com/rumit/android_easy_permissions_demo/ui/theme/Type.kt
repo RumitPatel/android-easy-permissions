@@ -1,4 +1,4 @@
-package com.rumit.android_easy_permission.ui.theme
+package com.rumit.android_easy_permissions_demo.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

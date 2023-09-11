@@ -1,4 +1,4 @@
-package com.rumit.android_easy_permission.ui.activies
+package com.rumit.android_easy_permissions_demo.ui.activies
 
 import android.Manifest
 import android.content.Context
@@ -9,13 +9,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.rumit.android_easy_permission.R
-import com.rumit.android_easy_permission.listeners.OnPermissionListener
-import com.rumit.android_easy_permission.ui.compose_screen.PermissionDemoScreen
-import com.rumit.android_easy_permission.ui.theme.AndroidComposeExampleTheme
-import com.rumit.android_easy_permission.utils.EasyPermission
-import com.rumit.android_easy_permission.utils.showSettingsDialog
-import com.rumit.android_easy_permission.utils.toast
+import com.rumit.android_easy_permissions_demo.R
+import com.rumit.android_easy_permissions_demo.listeners.OnPermissionListener
+import com.rumit.android_easy_permissions_demo.ui.compose_screen.PermissionDemoScreen
+import com.rumit.android_easy_permissions_demo.ui.theme.AndroidComposeExampleTheme
+import com.rumit.android_easy_permissions_demo.utils.EasyPermission
+import com.rumit.android_easy_permissions_demo.utils.showSettingsDialog
+import com.rumit.android_easy_permissions_demo.utils.toast
 
 class PermissionDemoActivity : AppCompatActivity() {
     private lateinit var mContext: Context
