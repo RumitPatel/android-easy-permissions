@@ -1,3 +1,6 @@
+# For library directory
+/easypermissions/
+
 # Built application files
 *.apk
 *.aar
