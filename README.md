@@ -3,18 +3,19 @@
 
 Easy permissions is created to make the runtime permissions process easier.
 
-**Step:1** Put this like in ```build.gradle(app)```
+# Download
+Put this like in ```build.gradle(app)```
 ```kotlin
 implementation("io.github.rumitpatel:easy-permissions:1.0.3")
 ```
 
-
-**Step:2** Create an object of EasyPermission.
+# How do I use EasyPermissions?
+**Step:1** Create an object of EasyPermission.
 ```kotlin
 private var easyPermission: EasyPermission? = null
 ```
 
-**Step:3** Initiate permission obj in obCreate() method. Also handle callback here.
+**Step:2** Initiate permission obj in obCreate() method. Also handle callback here.
 
 ```kotlin
 private fun initializePermissionObj() {
@@ -41,7 +42,7 @@ private fun initializePermissionObj() {
     }
 ```
 
-**Step:4** Simply launch the launcher.
+**Step:3** Simply launch the launcher.
 
 ```kotlin
 buttonTest.setOnClickListener {
@@ -49,3 +50,9 @@ buttonTest.setOnClickListener {
 }
 ```
 **Note:** Please make sure the required permissions are added in ```Androidmanifest.xml``` too.
+
+
+# PermissionType
+1. PermissionType.PERMISSION_CAMERA_AND_GALLERY: It will open the dialog with permissions required for capture.
+2. PermissionType.PERMISSION_LOCATION: It will open the dialog with permissions required for corese and fine location.
+3. PermissionType.PERMISSION_SINGLE: You can open the permission dialog for single permission too.
