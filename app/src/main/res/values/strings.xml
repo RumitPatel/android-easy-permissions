@@ -7,9 +7,4 @@
     <string name="notification_permission">Notification permission</string>
     <string name="location_permission">Location permission</string>
     <string name="single_permission">Single(Specific) permission</string>
-    <string name="permission_alert">Permission needed!</string>
-    <string name="goto_setting_and_permission">Application can not work without permissions. Please enable it from settings.</string>
-    <string name="str_settings">Setting</string>
-    <string name="str_cancel">Cancel</string>
-
 </resources>

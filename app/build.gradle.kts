@@ -68,5 +68,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(libs.easy.permissions)
+    implementation(project(mapOf("path" to ":easypermissions")))
+//    implementation(libs.easy.permissions)
 }

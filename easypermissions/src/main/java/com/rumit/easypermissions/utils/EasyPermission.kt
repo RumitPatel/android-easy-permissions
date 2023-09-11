@@ -1,4 +1,4 @@
-package com.rumit.android_easy_permissions_demo.utils
+package com.rumit.easypermissions.utils
 
 import android.Manifest
 import android.content.Context
@@ -9,7 +9,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.rumit.android_easy_permissions_demo.listeners.OnPermissionListener
+import com.rumit.easypermissions.listeners.OnPermissionListener
+import com.rumit.easypermissions.utils.isAndroid13OrGreater
+import com.rumit.easypermissions.utils.isLowerThanAndroid10
 
 class EasyPermission(
     private val activity: AppCompatActivity? = null,

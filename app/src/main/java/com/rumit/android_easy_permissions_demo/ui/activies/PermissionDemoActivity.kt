@@ -10,12 +10,12 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.rumit.android_easy_permissions_demo.R
-import com.rumit.android_easy_permissions_demo.listeners.OnPermissionListener
 import com.rumit.android_easy_permissions_demo.ui.compose_screen.PermissionDemoScreen
 import com.rumit.android_easy_permissions_demo.ui.theme.AndroidComposeExampleTheme
-import com.rumit.android_easy_permissions_demo.utils.EasyPermission
-import com.rumit.android_easy_permissions_demo.utils.showSettingsDialog
-import com.rumit.android_easy_permissions_demo.utils.toast
+import com.rumit.easypermissions.listeners.OnPermissionListener
+import com.rumit.easypermissions.utils.EasyPermission
+import com.rumit.easypermissions.utils.showSettingsDialog
+import com.rumit.easypermissions.utils.toast
 
 class PermissionDemoActivity : AppCompatActivity() {
     private lateinit var mContext: Context
