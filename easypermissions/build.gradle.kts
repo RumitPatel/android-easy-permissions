@@ -4,8 +4,6 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
-group = ""
-
 android {
     namespace = "com.rumit.easypermissions"
     compileSdk = 33
