@@ -16,17 +16,17 @@ artifacts {
     archives androidSourcesJar
 }
 
-group = "io.github.RumitPatel"
-version = "1.0.1"
+group = "io.github.rumitpatel"
+version = "1.0.2"
 
 afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
                 tasks.named("generateMetadataFileForReleasePublication").configure { dependsOn("androidSourcesJar") }
-                groupId "io.github.RumitPatel"
+                groupId "io.github.rumitpatel"
                 artifactId "easy-permissions"
-                version "1.0.1"
+                version "1.0.2"
 
                 // Two artifacts, the `aar` (or `jar`) and the sources
                 if (project.plugins.findPlugin("com.android.library")) {

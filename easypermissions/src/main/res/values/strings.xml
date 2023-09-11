@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_alert">Permission needed!</string>
+    <string name="goto_setting_and_permission">Application can not work without permissions. Please enable it from settings.</string>
+    <string name="str_settings">Setting</string>
+    <string name="str_cancel">Cancel</string>
+</resources>
