@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Easy Permissions"
 include(":app")
+include(":easypermissions")
