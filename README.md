@@ -50,3 +50,4 @@ buttonTest.setOnClickListener {
 }
 
 ```
+**Note:** Please make sure the required permissions are added in ```Androidmanifest.xml``` too.
