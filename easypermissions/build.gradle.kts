@@ -4,6 +4,14 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
+rootProject.extra.apply {
+    set("PUBLISH_GROUP_ID", "io.github.RumitPatel")
+    set("PUBLISH_ARTIFACT_ID", "easy-permissions")
+    set("PUBLISH_VERSION", "1.0.1")
+}
+
+apply(from = "${rootDir}/scripts/publish-module.gradle")
+
 android {
     namespace = "com.rumit.easypermissions"
     compileSdk = 33
