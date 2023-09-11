@@ -13,14 +13,14 @@ import com.rumit.android_easy_permissions_demo.R
 import com.rumit.android_easy_permissions_demo.ui.compose_screen.PermissionDemoScreen
 import com.rumit.android_easy_permissions_demo.ui.theme.AndroidComposeExampleTheme
 import com.rumit.easypermissions.listeners.OnPermissionListener
-import com.rumit.easypermissions.utils.EasyPermission
+import com.rumit.easypermissions.utils.EasyPermissions
 import com.rumit.easypermissions.utils.showSettingsDialog
 import com.rumit.easypermissions.utils.toast
 
 class PermissionDemoActivity : AppCompatActivity() {
     private lateinit var mContext: Context
-    private var easyPermission: EasyPermission? = null
-    private var easyPermissionForSinglePermission: EasyPermission? = null
+    private var easyPermission: EasyPermissions? = null
+    private var easyPermissionForSinglePermission: EasyPermissions? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +42,8 @@ class PermissionDemoActivity : AppCompatActivity() {
     }
 
     private fun initializePermissionObj() {
-        easyPermission = EasyPermission.Initializer(this@PermissionDemoActivity)
-            .setPermissionType(EasyPermission.PermissionType.PERMISSION_CAMERA_AND_GALLERY)
+        easyPermission = EasyPermissions.Initializer(this@PermissionDemoActivity)
+            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_GALLERY)
             .setOnPermissionListener(object : OnPermissionListener {
                 override fun onGranted() {
                     toast(getString(R.string.permission_granted))
@@ -63,8 +63,8 @@ class PermissionDemoActivity : AppCompatActivity() {
             })
             .build()
 
-        easyPermissionForSinglePermission = EasyPermission.Initializer(this@PermissionDemoActivity)
-            .setPermissionType(EasyPermission.PermissionType.PERMISSION_SINGLE)
+        easyPermissionForSinglePermission = EasyPermissions.Initializer(this@PermissionDemoActivity)
+            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_SINGLE)
             .setSinglePermission(Manifest.permission.ACCESS_COARSE_LOCATION)
             .setOnPermissionListener(object : OnPermissionListener {
                 override fun onGranted() {

@@ -10,10 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.rumit.easypermissions.listeners.OnPermissionListener
-import com.rumit.easypermissions.utils.isAndroid13OrGreater
-import com.rumit.easypermissions.utils.isLowerThanAndroid10
 
-class EasyPermission(
+class EasyPermissions(
     private val activity: AppCompatActivity? = null,
     private val permissionType: PermissionType? = null,
     private val singlePermission: String? = null,
@@ -101,7 +99,7 @@ class EasyPermission(
             }
         }
 
-        fun build() = EasyPermission(this@Initializer)
+        fun build() = EasyPermissions(this@Initializer)
     }
 
     fun launch() {
