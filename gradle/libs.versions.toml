@@ -13,6 +13,9 @@ ui-test-manifest = "1.5.0"
 ui-test-junit4 = "1.5.0"
 ui-tooling-preview = "1.5.0"
 ui-tooling = "1.5.0"
+agp = "8.1.1"
+org-jetbrains-kotlin-android = "1.9.10"
+com-google-android-material-material = "1.9.0"
 
 
 [libraries]
@@ -32,3 +35,8 @@ junit = { module = "junit:junit", version.ref = "junit" }
 lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
 material = { module = "androidx.compose.material:material", version.ref = "material" }
+com-google-android-material-material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
+
+[plugins]
+com-android-library = { id = "com.android.library", version.ref = "agp" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
