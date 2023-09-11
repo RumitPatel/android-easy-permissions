@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.rumit.android_easy_permission"
+    namespace = "com.rumit.android_easy_permissions_demo"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.rumit.android_easy_permission"
+        applicationId = "com.rumit.android_easy_permissions_demo"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
