@@ -16,17 +16,17 @@ artifacts {
     archives androidSourcesJar
 }
 
-group = "io.github.rumitpatel"
-version = "1.0.2"
+group = PUBLISH_GROUP_ID
+version = PUBLISH_VERSION
 
 afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
                 tasks.named("generateMetadataFileForReleasePublication").configure { dependsOn("androidSourcesJar") }
-                groupId "io.github.rumitpatel"
-                artifactId "easy-permissions"
-                version "1.0.2"
+                groupId PUBLISH_GROUP_ID
+                artifactId PUBLISH_ARTIFACT_ID
+                version PUBLISH_VERSION
 
                 // Two artifacts, the `aar` (or `jar`) and the sources
                 if (project.plugins.findPlugin("com.android.library")) {
@@ -36,7 +36,7 @@ afterEvaluate {
                 }
 
                 pom {
-                    name = "easy-permissions"
+                    name = PUBLISH_ARTIFACT_ID
                     description = "Permissions is a library to help the developers to implement runtime permissions."
                     url = "https://github.com/RumitPatel/android-easy-permissions"
                     licenses {

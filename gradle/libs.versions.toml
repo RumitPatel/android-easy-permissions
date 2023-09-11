@@ -16,7 +16,7 @@ ui-tooling = "1.5.0"
 agp = "8.1.1"
 org-jetbrains-kotlin-android = "1.9.10"
 com-google-android-material-material = "1.9.0"
-easy-permissions = "1.0.1"
+easy-permissions = "1.0.2"
 
 
 [libraries]
@@ -37,7 +37,7 @@ lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", v
 lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
 material = { module = "androidx.compose.material:material", version.ref = "material" }
 com-google-android-material-material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
-easy-permissions = { module = "io.github.RumitPatel:easy-permissions", version.ref = "easy-permissions" }
+easy-permissions = { module = "io.github.rumitpatel:easy-permissions", version.ref = "easy-permissions" }
 
 [plugins]
 com-android-library = { id = "com.android.library", version.ref = "agp" }
