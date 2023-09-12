@@ -1,5 +1,5 @@
 # android-easy-permission
-🚧  Note: The project is almost completed and it is in last phase. You are most welcome to test it and generate issue or feedback🙂.
+🚧  Note: The project is almost completed and waiting for feedbacks and issues. You are most welcome to test it and generate issue or feedback🙂.
 
 EasyPermissions is created to make the runtime permissions easier.
 
