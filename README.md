@@ -3,13 +3,35 @@
 
 EasyPermissions is created to make the runtime permissions easier.
 
-# Download
+## Download
 Mention dependency in ```build.gradle(app)```
+
+For Groovy:
+```groovy
+implementation "io.github.rumitpatel:easy-permissions:1.0.5"
+```
+
+For Kotlin DSL:
 ```kotlin
 implementation("io.github.rumitpatel:easy-permissions:1.0.5")
 ```
 
-# How do I use EasyPermissions?
+## Declear permissions in menifest
+
+For example. If you want to request Camera, Coarse-location and Storage permissions, first, declare them in the AndroidManifest.xml.
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.permissionx.app">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+</manifest>
+```
+
+## How do I use EasyPermissions?
 **Step:1** Create an object of EasyPermission.
 ```kotlin
 private var easyPermissions: EasyPermission? = null
@@ -51,7 +73,7 @@ buttonTest.setOnClickListener {
 **Note:** Please make sure the required permissions are added in ```Androidmanifest.xml``` too.
 
 
-# PermissionType examples
+## PermissionType examples
 1. ```PermissionType.PERMISSION_CAMERA_AND_STORAGE```: It will open the dialog with permissions required for capture and retrieve image.
 
 2. ```PermissionType.PERMISSION_STORAGE```: It will open the dialog with permissions required for storage.
