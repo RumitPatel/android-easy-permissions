@@ -20,7 +20,11 @@ class EasyPermissions(
 ) {
 
     enum class PermissionType {
-        PERMISSION_CAMERA_AND_GALLERY, PERMISSION_NOTIFICATION, PERMISSION_LOCATION, PERMISSION_SINGLE
+        PERMISSION_CAMERA_AND_STORAGE,
+        STORAGE,
+        PERMISSION_NOTIFICATION,
+        PERMISSION_LOCATION,
+        PERMISSION_SINGLE
     }
 
 
@@ -104,8 +108,12 @@ class EasyPermissions(
 
     fun launch() {
         when (permissionType) {
-            PermissionType.PERMISSION_CAMERA_AND_GALLERY -> {
+            PermissionType.PERMISSION_CAMERA_AND_STORAGE -> {
                 checkAndRequestCameraAndStoragePermissions(activity as Context)
+            }
+
+            PermissionType.STORAGE -> {
+                checkAndRequestStoragePermissions(activity as Context)
             }
 
             PermissionType.PERMISSION_NOTIFICATION -> {
@@ -167,6 +175,32 @@ class EasyPermissions(
         if (permissionCamera != PackageManager.PERMISSION_GRANTED) {
             listPermissionsNeeded.add(Manifest.permission.CAMERA)
         }
+        if (permissionReadExternal != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(permissionReadMediaImage)
+        }
+        if (listPermissionsNeeded.isNotEmpty()) {
+            requestMultiplePermissions?.launch(
+                listPermissionsNeeded.toArray(arrayOf(listPermissionsNeeded.size.toString()))
+            )
+            return false
+        }
+        mOnPermissionListener?.onGranted()
+        return true
+    }
+
+    private fun checkAndRequestStoragePermissions(context: Context): Boolean {
+        val permissionWriteExternal: Int =
+            ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        val permissionReadExternal: Int =
+            ContextCompat.checkSelfPermission(context, permissionReadMediaImage)
+
+        val listPermissionsNeeded = ArrayList<String>()
+        if (isLowerThanAndroid10()) {
+            if (permissionWriteExternal != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            }
+        }
+
         if (permissionReadExternal != PackageManager.PERMISSION_GRANTED) {
             listPermissionsNeeded.add(permissionReadMediaImage)
         }
