@@ -52,8 +52,11 @@ buttonTest.setOnClickListener {
 **Note:** Please make sure the required permissions are added in ```Androidmanifest.xml``` too.
 
 
-# PermissionType
-1. PermissionType.PERMISSION_CAMERA_AND_STORAGE: It will open the dialog with permissions required for capture and retrieve image.
-2. PermissionType.PERMISSION_STORAGE: It will open the dialog with permissions required for storage.
-3PermissionType.PERMISSION_LOCATION: It will open the dialog with permissions required for ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION.
-4PermissionType.PERMISSION_SINGLE: You can open the permission dialog for single permission too.
+# PermissionType examples
+1. ```PermissionType.PERMISSION_CAMERA_AND_STORAGE```: It will open the dialog with permissions required for capture and retrieve image.
+
+2. ```PermissionType.PERMISSION_STORAGE```: It will open the dialog with permissions required for storage.
+
+3. ```PermissionType.PERMISSION_LOCATION```: It will open the dialog with permissions required for ```ACCESS_COARSE_LOCATION``` and ```ACCESS_FINE_LOCATION```.
+
+4. ```PermissionType.PERMISSION_SINGLE```: You can open the permission dialog for single permission too.
