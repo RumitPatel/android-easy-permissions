@@ -1,5 +1,5 @@
 # android-easy-permission
-🚧  Note: The project is under beta testing. 
+🚧  Note: The project is under beta version. You are most welcome to test it and generate issue or feedback🙂.
 
 Easy permissions is created to make the runtime permissions process easier.
 
@@ -15,7 +15,7 @@ implementation("io.github.rumitpatel:easy-permissions:1.0.3")
 private var easyPermissions: EasyPermission? = null
 ```
 
-**Step:2** Initiate permission obj in obCreate() method. Also handle callback here.
+**Step:2** Initiate permission obj in ```obCreate()``` method. Also handle callback here.
 
 ```kotlin
 private fun initializePermissionObj() {
