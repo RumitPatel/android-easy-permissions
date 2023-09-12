@@ -9,13 +9,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.rumit.easypermissions.listeners.OnPermissionListener
+import com.rumit.easypermissions.listeners.OnPermissionsListener
 
 class EasyPermissions(
     private val activity: AppCompatActivity? = null,
     private val permissionType: PermissionType? = null,
     private val singlePermission: String? = null,
-    private val mOnPermissionListener: OnPermissionListener? = null,
+    private val mOnPermissionsListener: OnPermissionsListener? = null,
     private val requestMultiplePermissions: ActivityResultLauncher<Array<String>>? = null
 ) {
 
@@ -35,7 +35,7 @@ class EasyPermissions(
         initializer.activity,
         initializer.permissionType,
         initializer.singlePermission,
-        initializer.onPermissionListener,
+        initializer.onPermissionsListener,
         initializer.permissionResultLauncher
     )
 
@@ -46,7 +46,7 @@ class EasyPermissions(
         var permissionResultLauncher: ActivityResultLauncher<Array<String>>? = null
             private set
 
-        var onPermissionListener: OnPermissionListener? = null
+        var onPermissionsListener: OnPermissionsListener? = null
             private set
 
         var permissionType: PermissionType? = null
@@ -62,8 +62,8 @@ class EasyPermissions(
         fun setSinglePermission(singlePermission: String?) =
             apply { this.singlePermission = singlePermission }
 
-        fun setOnPermissionListener(onPermissionListener: OnPermissionListener?) = apply {
-            this.onPermissionListener = onPermissionListener
+        fun setOnPermissionListener(onPermissionsListener: OnPermissionsListener?) = apply {
+            this.onPermissionsListener = onPermissionsListener
 
             this.permissionResultLauncher = activity?.registerForActivityResult(
                 ActivityResultContracts.RequestMultiplePermissions()
@@ -92,13 +92,13 @@ class EasyPermissions(
                     }
                 }
                 if (isAnyPermissionDeclinedTemporary) {
-                    onPermissionListener?.onDeclinedTemporary()
+                    onPermissionsListener?.onDeclinedTemporary()
                 } else if (isAnyPermissionDeclinedPermanently) {
-                    onPermissionListener?.onDeclinedPermanently()
+                    onPermissionsListener?.onDeclinedPermanently()
                 } else if (isAnyPermissionDeclined) {
-                    onPermissionListener?.onDeclined()
+                    onPermissionsListener?.onDeclined()
                 } else {
-                    onPermissionListener?.onGranted()
+                    onPermissionsListener?.onGranted()
                 }
             }
         }
@@ -153,7 +153,7 @@ class EasyPermissions(
             )
             return false
         }
-        mOnPermissionListener?.onGranted()
+        mOnPermissionsListener?.onGranted()
         return true
     }
 
@@ -184,7 +184,7 @@ class EasyPermissions(
             )
             return false
         }
-        mOnPermissionListener?.onGranted()
+        mOnPermissionsListener?.onGranted()
         return true
     }
 
@@ -210,7 +210,7 @@ class EasyPermissions(
             )
             return false
         }
-        mOnPermissionListener?.onGranted()
+        mOnPermissionsListener?.onGranted()
         return true
     }
 
@@ -233,7 +233,7 @@ class EasyPermissions(
             )
             return false
         }
-        mOnPermissionListener?.onGranted()
+        mOnPermissionsListener?.onGranted()
         return true
     }
 
@@ -260,7 +260,7 @@ class EasyPermissions(
             )
             return false
         }
-        mOnPermissionListener?.onGranted()
+        mOnPermissionsListener?.onGranted()
         return true
     }
 }
