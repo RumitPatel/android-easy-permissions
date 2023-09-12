@@ -19,7 +19,7 @@ import com.rumit.easypermissions.utils.toast
 
 class PermissionDemoActivity : AppCompatActivity() {
     private lateinit var mContext: Context
-    private var easyPermission: EasyPermissions? = null
+    private var easyPermissions: EasyPermissions? = null
     private var easyPermissionForSinglePermission: EasyPermissions? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class PermissionDemoActivity : AppCompatActivity() {
                     modifier = Modifier.fillMaxWidth(), color = MaterialTheme.colors.background
                 ) {
                     PermissionDemoScreen(
-                        onTestButtonPressed = { easyPermission?.launch() },
+                        onTestButtonPressed = { easyPermissions?.launch() },
                         onTestSingleButtonPressed = { easyPermissionForSinglePermission?.launch() }
                     )
                 }
@@ -42,8 +42,8 @@ class PermissionDemoActivity : AppCompatActivity() {
     }
 
     private fun initializePermissionObj() {
-        easyPermission = EasyPermissions.Initializer(this@PermissionDemoActivity)
-            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_GALLERY)
+        easyPermissions = EasyPermissions.Initializer(this@PermissionDemoActivity)
+            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_STORAGE)
             .setOnPermissionListener(object : OnPermissionListener {
                 override fun onGranted() {
                     toast(getString(R.string.permission_granted))

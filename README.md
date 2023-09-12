@@ -12,15 +12,15 @@ implementation("io.github.rumitpatel:easy-permissions:1.0.3")
 # How do I use EasyPermissions?
 **Step:1** Create an object of EasyPermission.
 ```kotlin
-private var easyPermission: EasyPermission? = null
+private var easyPermissions: EasyPermission? = null
 ```
 
 **Step:2** Initiate permission obj in obCreate() method. Also handle callback here.
 
 ```kotlin
 private fun initializePermissionObj() {
-        easyPermission = EasyPermissions.Initializer(this@PermissionDemoActivity)
-            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_GALLERY)
+        easyPermissions = EasyPermissions.Initializer(this@PermissionDemoActivity)
+            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_STORAGE)
             .setOnPermissionListener(object : OnPermissionListener {
                 override fun onGranted() {
                     toast(getString(R.string.permission_granted))
@@ -46,13 +46,14 @@ private fun initializePermissionObj() {
 
 ```kotlin
 buttonTest.setOnClickListener {
-     easyPermission?.launch()
+    easyPermissions?.launch()
 }
 ```
 **Note:** Please make sure the required permissions are added in ```Androidmanifest.xml``` too.
 
 
 # PermissionType
-1. PermissionType.PERMISSION_CAMERA_AND_GALLERY: It will open the dialog with permissions required for capture.
-2. PermissionType.PERMISSION_LOCATION: It will open the dialog with permissions required for corese and fine location.
-3. PermissionType.PERMISSION_SINGLE: You can open the permission dialog for single permission too.
+1. PermissionType.PERMISSION_CAMERA_AND_STORAGE: It will open the dialog with permissions required for capture and retrieve image.
+2. PermissionType.PERMISSION_STORAGE: It will open the dialog with permissions required for storage.
+3PermissionType.PERMISSION_LOCATION: It will open the dialog with permissions required for ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION.
+4PermissionType.PERMISSION_SINGLE: You can open the permission dialog for single permission too.
