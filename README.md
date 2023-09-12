@@ -4,7 +4,7 @@
 EasyPermissions is created to make the runtime permissions easier.
 
 # Download
-Put this like in ```build.gradle(app)```
+Mention dependency in ```build.gradle(app)```
 ```kotlin
 implementation("io.github.rumitpatel:easy-permissions:1.0.5")
 ```
