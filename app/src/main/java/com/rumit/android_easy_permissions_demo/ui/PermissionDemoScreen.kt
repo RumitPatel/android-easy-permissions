@@ -1,4 +1,4 @@
-package com.rumit.android_easy_permissions_demo.ui.compose_screen
+package com.rumit.android_easy_permissions_demo.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

@@ -30,7 +30,7 @@
         android:theme="@style/Theme.MyAppcompatTheme"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activies.PermissionDemoActivity"
+            android:name=".demo_activity.PermissionDemoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

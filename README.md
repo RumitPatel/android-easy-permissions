@@ -1,12 +1,12 @@
 # android-easy-permission
 🚧  Note: The project is under beta version. You are most welcome to test it and generate issue or feedback🙂.
 
-Easy permissions is created to make the runtime permissions process easier.
+EasyPermissions is created to make the runtime permissions easier.
 
 # Download
 Put this like in ```build.gradle(app)```
 ```kotlin
-implementation("io.github.rumitpatel:easy-permissions:1.0.4")
+implementation("io.github.rumitpatel:easy-permissions:1.0.5")
 ```
 
 # How do I use EasyPermissions?
@@ -19,26 +19,26 @@ private var easyPermissions: EasyPermission? = null
 
 ```kotlin
 private fun initializePermissionObj() {
-        easyPermissions = EasyPermissions.Initializer(this@PermissionDemoActivity)
-            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_STORAGE)
-            .setOnPermissionListener(object : OnPermissionsListener {
-                override fun onGranted() {
-                    toast(getString(R.string.permission_granted))
-                }
+    easyPermissions = EasyPermissions.Builder(this@PermissionDemoActivity)
+        .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_STORAGE)
+        .setOnPermissionListener(object : OnPermissionsListener {
+            override fun onGranted() {
+                toast(getString(R.string.permission_granted))
+            }
 
-                override fun onDeclined(shouldRequestAgain: Boolean) {
-                    toast(getString(R.string.permission_declined))
-                    if (shouldRequestAgain) {
-                        // You can request again by calling "easyPermissions?.launch()" here.
-                    } else {
-                        //Never ask again selected, dismissed the dialog, or device policy prohibits the app from having that permission
-                        // For example, Settings dialog opened here.
-                        showSettingsDialog()
-                    }
+            override fun onDeclined(shouldRequestAgain: Boolean) {
+                toast(getString(R.string.permission_declined))
+                if (shouldRequestAgain) {
+                    // You can request again by calling "easyPermissions?.launch()" here.
+                } else {
+                    //Never ask again selected, dismissed the dialog, or device policy prohibits the app from having that permission
+                    // For example, Settings dialog opened here.
+                    showSettingsDialog()
                 }
-            })
-            .build()
-    }
+            }
+        })
+        .build()
+}
 ```
 
 **Step:3** Simply launch the launcher.
@@ -58,4 +58,4 @@ buttonTest.setOnClickListener {
 
 3. ```PermissionType.PERMISSION_LOCATION```: It will open the dialog with permissions required for ```ACCESS_COARSE_LOCATION``` and ```ACCESS_FINE_LOCATION```.
 
-4. ```PermissionType.PERMISSION_SINGLE```: You can open the permission dialog for single permission too.
+4. ```PermissionType.PERMISSION_SPECIFIC```: You can open the permission dialog for single permission too.

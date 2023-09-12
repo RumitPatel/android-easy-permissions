@@ -1,4 +1,4 @@
-package com.rumit.android_easy_permissions_demo.ui.activies
+package com.rumit.android_easy_permissions_demo.demo_activity
 
 import android.Manifest
 import android.content.Context
@@ -10,7 +10,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.rumit.android_easy_permissions_demo.R
-import com.rumit.android_easy_permissions_demo.ui.compose_screen.PermissionDemoScreen
+import com.rumit.android_easy_permissions_demo.ui.PermissionDemoScreen
 import com.rumit.android_easy_permissions_demo.ui.theme.AndroidComposeExampleTheme
 import com.rumit.easypermissions.listeners.OnPermissionsListener
 import com.rumit.easypermissions.utils.EasyPermissions
@@ -20,7 +20,7 @@ import com.rumit.easypermissions.utils.toast
 class PermissionDemoActivity : AppCompatActivity() {
     private lateinit var mContext: Context
     private var easyPermissions: EasyPermissions? = null
-    private var easyPermissionForSinglePermission: EasyPermissions? = null
+    private var easyPermissionForSpecificPermission: EasyPermissions? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class PermissionDemoActivity : AppCompatActivity() {
                 ) {
                     PermissionDemoScreen(
                         onTestButtonPressed = { easyPermissions?.launch() },
-                        onTestSingleButtonPressed = { easyPermissionForSinglePermission?.launch() }
+                        onTestSingleButtonPressed = { easyPermissionForSpecificPermission?.launch() }
                     )
                 }
             }
@@ -42,7 +42,7 @@ class PermissionDemoActivity : AppCompatActivity() {
     }
 
     private fun initializePermissionObj() {
-        easyPermissions = EasyPermissions.Initializer(this@PermissionDemoActivity)
+        easyPermissions = EasyPermissions.Builder(this@PermissionDemoActivity)
             .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_STORAGE)
             .setOnPermissionListener(object : OnPermissionsListener {
                 override fun onGranted() {
@@ -62,9 +62,14 @@ class PermissionDemoActivity : AppCompatActivity() {
             })
             .build()
 
-        easyPermissionForSinglePermission = EasyPermissions.Initializer(this@PermissionDemoActivity)
-            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_SINGLE)
-            .setSinglePermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+        easyPermissionForSpecificPermission = EasyPermissions.Builder(this@PermissionDemoActivity)
+            .setPermissionType(EasyPermissions.PermissionType.PERMISSION_SPECIFIC)
+            .setSpecificPermissions(
+                arrayOf(
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.CAMERA
+                )
+            )
             .setOnPermissionListener(object : OnPermissionsListener {
                 override fun onGranted() {
                     toast(getString(R.string.permission_granted))

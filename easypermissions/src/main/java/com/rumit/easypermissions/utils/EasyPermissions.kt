@@ -3,6 +3,7 @@ package com.rumit.easypermissions.utils
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.text.TextUtils
 import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -14,7 +15,7 @@ import com.rumit.easypermissions.listeners.OnPermissionsListener
 class EasyPermissions(
     private val activity: AppCompatActivity? = null,
     private val permissionType: PermissionType? = null,
-    private val singlePermission: String? = null,
+    private val specificPermissions: Array<String?>? = null,
     private val mOnPermissionsListener: OnPermissionsListener? = null,
     private val requestMultiplePermissions: ActivityResultLauncher<Array<String>>? = null
 ) {
@@ -24,22 +25,22 @@ class EasyPermissions(
         STORAGE,
         PERMISSION_NOTIFICATION,
         PERMISSION_LOCATION,
-        PERMISSION_SINGLE
+        PERMISSION_SPECIFIC
     }
 
 
     private val permissionReadMediaImage =
         if (isAndroid13OrGreater()) Manifest.permission.READ_MEDIA_IMAGES else Manifest.permission.READ_EXTERNAL_STORAGE
 
-    private constructor(initializer: Initializer) : this(
-        initializer.activity,
-        initializer.permissionType,
-        initializer.singlePermission,
-        initializer.onPermissionsListener,
-        initializer.permissionResultLauncher
+    private constructor(builder: Builder) : this(
+        builder.activity,
+        builder.permissionType,
+        builder.specificPermissions,
+        builder.onPermissionsListener,
+        builder.permissionResultLauncher
     )
 
-    class Initializer(activity: AppCompatActivity?) {
+    class Builder(activity: AppCompatActivity?) {
         var activity: AppCompatActivity? = activity
             private set
 
@@ -52,15 +53,15 @@ class EasyPermissions(
         var permissionType: PermissionType? = null
             private set
 
-        var singlePermission: String? = null
+        var specificPermissions: Array<String?>? = null
             private set
 
 
         fun setPermissionType(permissionType: PermissionType?) =
             apply { this.permissionType = permissionType }
 
-        fun setSinglePermission(singlePermission: String?) =
-            apply { this.singlePermission = singlePermission }
+        fun setSpecificPermissions(specificPermissions: Array<String?>?) =
+            apply { this.specificPermissions = specificPermissions }
 
         fun setOnPermissionListener(onPermissionsListener: OnPermissionsListener?) = apply {
             this.onPermissionsListener = onPermissionsListener
@@ -99,7 +100,7 @@ class EasyPermissions(
             }
         }
 
-        fun build() = EasyPermissions(this@Initializer)
+        fun build() = EasyPermissions(this@Builder)
     }
 
     fun launch() {
@@ -120,8 +121,8 @@ class EasyPermissions(
                 checkAndRequestLocationPermissions(activity as Context)
             }
 
-            PermissionType.PERMISSION_SINGLE -> {
-                checkAndRequestSinglePermissions(activity as Context)
+            PermissionType.PERMISSION_SPECIFIC -> {
+                checkAndRequestSpecificPermissions(activity as Context)
             }
 
             else -> {
@@ -130,19 +131,23 @@ class EasyPermissions(
         }
     }
 
-    private fun checkAndRequestSinglePermissions(context: Context): Boolean {
-        if (singlePermission.isNullOrEmpty()) {
+    private fun checkAndRequestSpecificPermissions(context: Context): Boolean {
+        if (specificPermissions.isNullOrEmpty()) {
             return false
         }
 
-        val permissionPostNotification: Int =
-            ContextCompat.checkSelfPermission(context, singlePermission)
-
         val listPermissionsNeeded = ArrayList<String>()
-
-        if (permissionPostNotification != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(singlePermission)
+        specificPermissions.forEach {
+            val specificPermission = it
+            if(specificPermission != null && !TextUtils.isEmpty(specificPermission)) {
+                val permissionPostNotification: Int =
+                    ContextCompat.checkSelfPermission(context, specificPermission)
+                if (permissionPostNotification != PackageManager.PERMISSION_GRANTED) {
+                    listPermissionsNeeded.add(specificPermission)
+                }
+            }
         }
+
         if (listPermissionsNeeded.isNotEmpty()) {
             requestMultiplePermissions?.launch(
                 listPermissionsNeeded.toArray(arrayOf(listPermissionsNeeded.size.toString()))
