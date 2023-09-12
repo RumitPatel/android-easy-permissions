@@ -26,16 +26,15 @@ private fun initializePermissionObj() {
                     toast(getString(R.string.permission_granted))
                 }
 
-                override fun onDeclined() {
+                override fun onDeclined(shouldRequestAgain: Boolean) {
                     toast(getString(R.string.permission_declined))
-                }
-
-                override fun onDeclinedTemporary() {
-                    toast(getString(R.string.permission_declined))
-                }
-
-                override fun onDeclinedPermanently() {
-                    showSettingsDialog()
+                    if (shouldRequestAgain) {
+                        // You can request again by calling "easyPermissions?.launch()" here.
+                    } else {
+                        //Never ask again selected, dismissed the dialog, or device policy prohibits the app from having that permission
+                        // For example, Settings dialog opened here.
+                        showSettingsDialog()
+                    }
                 }
             })
             .build()
