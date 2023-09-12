@@ -21,7 +21,7 @@ private var easyPermissions: EasyPermission? = null
 private fun initializePermissionObj() {
         easyPermissions = EasyPermissions.Initializer(this@PermissionDemoActivity)
             .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_STORAGE)
-            .setOnPermissionListener(object : OnPermissionListener {
+            .setOnPermissionListener(object : OnPermissionsListener {
                 override fun onGranted() {
                     toast(getString(R.string.permission_granted))
                 }
@@ -31,11 +31,11 @@ private fun initializePermissionObj() {
                 }
 
                 override fun onDeclinedTemporary() {
-
+                    toast(getString(R.string.permission_declined))
                 }
 
                 override fun onDeclinedPermanently() {
-                    // showSettingsDialog()
+                    showSettingsDialog()
                 }
             })
             .build()
