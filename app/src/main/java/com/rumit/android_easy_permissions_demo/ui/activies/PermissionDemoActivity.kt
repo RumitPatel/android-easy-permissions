@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import com.rumit.android_easy_permissions_demo.R
 import com.rumit.android_easy_permissions_demo.ui.compose_screen.PermissionDemoScreen
 import com.rumit.android_easy_permissions_demo.ui.theme.AndroidComposeExampleTheme
-import com.rumit.easypermissions.listeners.OnPermissionListener
+import com.rumit.easypermissions.listeners.OnPermissionsListener
 import com.rumit.easypermissions.utils.EasyPermissions
 import com.rumit.easypermissions.utils.showSettingsDialog
 import com.rumit.easypermissions.utils.toast
@@ -44,7 +44,7 @@ class PermissionDemoActivity : AppCompatActivity() {
     private fun initializePermissionObj() {
         easyPermissions = EasyPermissions.Initializer(this@PermissionDemoActivity)
             .setPermissionType(EasyPermissions.PermissionType.PERMISSION_CAMERA_AND_STORAGE)
-            .setOnPermissionListener(object : OnPermissionListener {
+            .setOnPermissionListener(object : OnPermissionsListener {
                 override fun onGranted() {
                     toast(getString(R.string.permission_granted))
                 }
@@ -66,7 +66,7 @@ class PermissionDemoActivity : AppCompatActivity() {
         easyPermissionForSinglePermission = EasyPermissions.Initializer(this@PermissionDemoActivity)
             .setPermissionType(EasyPermissions.PermissionType.PERMISSION_SINGLE)
             .setSinglePermission(Manifest.permission.ACCESS_COARSE_LOCATION)
-            .setOnPermissionListener(object : OnPermissionListener {
+            .setOnPermissionListener(object : OnPermissionsListener {
                 override fun onGranted() {
                     toast(getString(R.string.permission_granted))
                 }

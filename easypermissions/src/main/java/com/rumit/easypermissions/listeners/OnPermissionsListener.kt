@@ -1,6 +1,6 @@
 package com.rumit.easypermissions.listeners
 
-interface OnPermissionListener {
+interface OnPermissionsListener {
     fun onGranted()
     fun onDeclined()
     fun onDeclinedTemporary()
