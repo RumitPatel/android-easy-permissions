@@ -7,7 +7,7 @@ plugins {
 rootProject.extra.apply {
     set("PUBLISH_GROUP_ID", "io.github.rumitpatel")
     set("PUBLISH_ARTIFACT_ID", "easy-permissions")
-    set("PUBLISH_VERSION", "1.0.3")
+    set("PUBLISH_VERSION", "1.0.4")
 }
 
 apply(from = "${rootDir}/scripts/publish-module.gradle")

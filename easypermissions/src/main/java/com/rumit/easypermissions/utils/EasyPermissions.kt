@@ -68,7 +68,6 @@ class EasyPermissions(
             this.permissionResultLauncher = activity?.registerForActivityResult(
                 ActivityResultContracts.RequestMultiplePermissions()
             ) { permissions ->
-                var isAnyPermissionDeclined = false
                 var isAnyPermissionDeclinedPermanently = false
                 var isAnyPermissionDeclinedTemporary = false
                 permissions.entries.forEach {
@@ -76,7 +75,6 @@ class EasyPermissions(
                     val permitted = it.value
                     Log.d("DEBUG", "$permission = $permitted")
                     if (!it.value) {
-                        isAnyPermissionDeclined = true
                         if (ActivityCompat.shouldShowRequestPermissionRationale(
                                 activity!!,
                                 permission
@@ -92,11 +90,9 @@ class EasyPermissions(
                     }
                 }
                 if (isAnyPermissionDeclinedTemporary) {
-                    onPermissionsListener?.onDeclinedTemporary()
+                    onPermissionsListener?.onDeclined(true)
                 } else if (isAnyPermissionDeclinedPermanently) {
-                    onPermissionsListener?.onDeclinedPermanently()
-                } else if (isAnyPermissionDeclined) {
-                    onPermissionsListener?.onDeclined()
+                    onPermissionsListener?.onDeclined(false)
                 } else {
                     onPermissionsListener?.onGranted()
                 }
@@ -240,13 +236,13 @@ class EasyPermissions(
     private fun checkAndRequestLocationPermissions(context: Context): Boolean {
         val permissionFineLocation: Int =
             ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
-        val permissionCorseLocation: Int =
+        val permissionCoarseLocation: Int =
             ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)
 
 
         val listPermissionsNeeded = ArrayList<String>()
         if (isLowerThanAndroid10()) {
-            if (permissionCorseLocation != PackageManager.PERMISSION_GRANTED) {
+            if (permissionCoarseLocation != PackageManager.PERMISSION_GRANTED) {
                 listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION)
             }
         }
