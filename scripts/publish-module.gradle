@@ -37,7 +37,7 @@ afterEvaluate {
 
                 pom {
                     name = PUBLISH_ARTIFACT_ID
-                    description = "EasyPermissions is a library to help the developers to implement runtime permissions."
+                    description = "EasyPermissions is a library to help the developers to implement runtime permissions easier."
                     url = "https://github.com/RumitPatel/android-easy-permissions"
                     licenses {
                         license {
