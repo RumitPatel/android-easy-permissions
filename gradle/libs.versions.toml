@@ -16,7 +16,7 @@ ui-tooling = "1.5.0"
 agp = "8.1.1"
 org-jetbrains-kotlin-android = "1.9.10"
 com-google-android-material-material = "1.9.0"
-easy-permissions = "1.0.4"
+easy-permissions = "1.0.5"
 
 
 [libraries]
