@@ -6,8 +6,8 @@
 <a href="https://android-arsenal.com/api?level=26"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
 <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
 
+<h3 align="start">EasyPermissions is created to make the runtime permissions easier.</h3>
 
-EasyPermissions is created to make the runtime permissions easier.
 
 🚧  Note: The project is almost completed and waiting for feedbacks and issues. You are most welcome to test it and generate issue or feedback🙂.
 
