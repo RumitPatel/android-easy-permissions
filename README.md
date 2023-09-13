@@ -1,10 +1,15 @@
-# android-easy-permission
-🚧  Note: The project is almost completed and waiting for feedbacks and issues. You are most welcome to test it and generate issue or feedback🙂.
+<h1 align="center">EasyPermissions</h1>
 
-EasyPermissions is created to make the runtime permissions easier.
 
 [![Mavenn Central](https://img.shields.io/maven-central/v/io.github.rumitpatel/easy-permissions)](https://central.sonatype.com/artifact/io.github.rumitpatel/easy-permissions)
 ![Compose Version](https://img.shields.io/badge/Compose-1.5.3-brightgreen)
+[![Github](https://img.shields.io/badge/Github-RumitPatel-blue?logo=github)](https://github.com/RumitPatel/android-easy-permissions)
+
+
+🚧  Note: The project is almost completed and waiting for feedbacks and issues. You are most welcome to test it and generate issue or feedback🙂.
+
+
+EasyPermissions is created to make the runtime permissions easier.
 
 [👉 Setup Guide](#how-do-i-use-easypermissions) | [Report new issue](https://github.com/RumitPatel/android-easy-permissions/issues/new)
 
