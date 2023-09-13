@@ -3,6 +3,8 @@
 
 EasyPermissions is created to make the runtime permissions easier.
 
+[👉 Setup Guide](#how-do-i-use-easypermissions)
+
 ## Download
 Mention dependency in ```build.gradle(app)```
 
