@@ -7,10 +7,10 @@
 <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
 
 
+EasyPermissions is created to make the runtime permissions easier.
+
 🚧  Note: The project is almost completed and waiting for feedbacks and issues. You are most welcome to test it and generate issue or feedback🙂.
 
-
-EasyPermissions is created to make the runtime permissions easier.
 
 [👉 Setup Guide](#how-do-i-use-easypermissions) | [Report new issue](https://github.com/RumitPatel/android-easy-permissions/issues/new)
 
