@@ -3,7 +3,7 @@
 [![Mavenn Central](https://img.shields.io/maven-central/v/io.github.rumitpatel/easy-permissions)](https://central.sonatype.com/artifact/io.github.rumitpatel/easy-permissions)
 ![Compose Version](https://img.shields.io/badge/Compose-1.5.3-brightgreen)
 [![Github](https://img.shields.io/badge/Github-RumitPatel-blue?logo=github)](https://github.com/RumitPatel/android-easy-permissions)
-<a href="https://android-arsenal.com/api?level=21"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
+<a href="https://android-arsenal.com/api?level=26"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
 <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
 
 
