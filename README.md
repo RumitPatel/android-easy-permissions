@@ -3,7 +3,12 @@
 
 EasyPermissions is created to make the runtime permissions easier.
 
-[👉 Setup Guide](#how-do-i-use-easypermissions)
+[![Mavenn Central](https://img.shields.io/maven-central/v/io.github.rumitpatel/easy-permissions)](https://central.sonatype.com/artifact/io.github.rumitpatel/easy-permissions)
+![Compose Version](https://img.shields.io/badge/Compose-1.5.3-brightgreen)
+
+[👉 Setup Guide](#how-do-i-use-easypermissions) | [Report new issue](https://github.com/RumitPatel/android-easy-permissions/issues/new)
+
+
 
 ## Download
 Mention dependency in ```build.gradle(app)```
