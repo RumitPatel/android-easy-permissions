@@ -65,37 +65,43 @@ class EasyPermissions(
 
         fun setOnPermissionListener(onPermissionsListener: OnPermissionsListener?) = apply {
             this.onPermissionsListener = onPermissionsListener
-
-            this.permissionResultLauncher = activity?.registerForActivityResult(
-                ActivityResultContracts.RequestMultiplePermissions()
-            ) { permissions ->
-                var isAnyPermissionDeclinedPermanently = false
-                var isAnyPermissionDeclinedTemporary = false
-                permissions.entries.forEach {
-                    val permission = it.key
-                    val permitted = it.value
-                    Log.d("DEBUG", "$permission = $permitted")
-                    if (!it.value) {
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(
-                                activity!!,
-                                permission
-                            )
-                        ) {
-                            //Show permission explanation dialog...
-                            isAnyPermissionDeclinedTemporary = true
-                        } else {
-                            //Never ask again selected, or device policy prohibits the app from having that permission.
-                            //So, disable that feature, or fall back to another situation...
-                            isAnyPermissionDeclinedPermanently = true
+            try {
+                this.permissionResultLauncher = activity?.registerForActivityResult(
+                    ActivityResultContracts.RequestMultiplePermissions()
+                ) { permissions ->
+                    var isAnyPermissionDeclinedPermanently = false
+                    var isAnyPermissionDeclinedTemporary = false
+                    permissions.entries.forEach {
+                        val permission = it.key
+                        val permitted = it.value
+                        Log.d("DEBUG", "$permission = $permitted")
+                        if (!it.value) {
+                            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                                    activity!!,
+                                    permission
+                                )
+                            ) {
+                                //Show permission explanation dialog...
+                                isAnyPermissionDeclinedTemporary = true
+                            } else {
+                                //Never ask again selected, or device policy prohibits the app from having that permission.
+                                //So, disable that feature, or fall back to another situation...
+                                isAnyPermissionDeclinedPermanently = true
+                            }
                         }
                     }
+                    if (isAnyPermissionDeclinedTemporary) {
+                        onPermissionsListener?.onDeclined(true)
+                    } else if (isAnyPermissionDeclinedPermanently) {
+                        onPermissionsListener?.onDeclined(false)
+                    } else {
+                        onPermissionsListener?.onGranted()
+                    }
                 }
-                if (isAnyPermissionDeclinedTemporary) {
-                    onPermissionsListener?.onDeclined(true)
-                } else if (isAnyPermissionDeclinedPermanently) {
-                    onPermissionsListener?.onDeclined(false)
-                } else {
-                    onPermissionsListener?.onGranted()
+            } catch (e: Exception) {
+                if (e is IllegalStateException) {
+                    activity?.toast(initialization_required_text)
+                    return@apply
                 }
             }
         }
@@ -139,7 +145,7 @@ class EasyPermissions(
         val listPermissionsNeeded = ArrayList<String>()
         specificPermissions.forEach {
             val specificPermission = it
-            if(specificPermission != null && !TextUtils.isEmpty(specificPermission)) {
+            if (specificPermission != null && !TextUtils.isEmpty(specificPermission)) {
                 val permissionPostNotification: Int =
                     ContextCompat.checkSelfPermission(context, specificPermission)
                 if (permissionPostNotification != PackageManager.PERMISSION_GRANTED) {
