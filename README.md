@@ -81,3 +81,9 @@ buttonTest.setOnClickListener {
 3. ```PermissionType.PERMISSION_LOCATION```: It will open the dialog with permissions required for ```ACCESS_COARSE_LOCATION``` and ```ACCESS_FINE_LOCATION```.
 
 4. ```PermissionType.PERMISSION_SPECIFIC```: You can open the permission dialog for single permission too.
+
+
+## Output:
+
+![easy-permissions-demo-gif-2](https://github.com/RumitPatel/android-easy-permissions/assets/81635516/72a637b3-ebeb-4984-8b31-666a6f8b9548)
+
