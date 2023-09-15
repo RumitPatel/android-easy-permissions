@@ -47,7 +47,7 @@ For example. If you want to request Camera, Coarse-location and Storage permissi
 ## How do I use EasyPermissions?
 **Step:1** Create an object of EasyPermission.
 ```kotlin
-private var easyPermissions: EasyPermission? = null
+private var easyPermissions: EasyPermissions? = null
 ```
 
 **Step:2** Initiate permission obj in ```obCreate()``` method. Also handle callback here.
