@@ -21,7 +21,7 @@ Mention dependency in ```build.gradle(app)```
 
 For Groovy:
 ```groovy
-implementation "io.github.rumitpatel:easy-permissions:1.0.5"
+implementation 'io.github.rumitpatel:easy-permissions:1.0.5'
 ```
 
 For Kotlin DSL:
