@@ -100,3 +100,6 @@ buttonTest.setOnClickListener {
 
 ![easy-permissions-demo-gif-2](https://github.com/RumitPatel/android-easy-permissions/assets/81635516/72a637b3-ebeb-4984-8b31-666a6f8b9548)
 
+
+## Thanks
+[Build and Publish multi-module Android library to Maven Central](https://blog.realogs.in/build-and-publish-multi-module-android-library-to-maven-central/) by [Jayesh Seth](https://blog.realogs.in/author/jayesh/)
